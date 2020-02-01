@@ -1,0 +1,10 @@
+12:51:43 **** Incremental Build of configuration Debug for project stm-link-2 ****
+make -j4 all 
+arm-none-eabi-size   stm-link-2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3784	     20	   1572	   5376	   1500	stm-link-2.elf
+Finished building: default.size.stdout
+ 
+
+12:51:45 Build Finished. 0 errors, 0 warnings. (took 2s.229ms)
+

@@ -1,0 +1,20 @@
+
+#include "servo.h"
+#include <stm32f1xx_hal_tim.h>
+
+
+
+void test_blink(){
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+	HAL_Delay(100);
+}
+
+/*
+void angle_init(TIM_HandleTypeDef & htim2){
+	(*htim2).Instance->CCR1 = 60;
+}
+*/
+
+void set_angle(uint8_t data){}
+
+

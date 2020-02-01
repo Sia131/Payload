@@ -1,0 +1,2 @@
+servo.c:8:6:test_blink	8	static
+servo.c:13:6:set_angle	24	static

@@ -1,0 +1,19 @@
+#include "servo.h"
+#include <stdint.h>
+#include "stm32f1xx_hal.h"
+
+#define A 	1
+#define B  	0
+
+void test_blink(){
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+	HAL_Delay(100);
+}
+
+void set_angle(TIM_HandleTypeDef *htim, uint16_t angle ){
+	/*transfer function */
+	uint16_t D = A*angle + B;
+
+	(*htim).Instance->CCR1 = D; //0
+}
+

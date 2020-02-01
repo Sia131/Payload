@@ -1,0 +1,17 @@
+
+#include "servo.h"
+
+
+
+void test_blink(){
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+	HAL_Delay(100);
+}
+
+void angle_init(){
+	HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_1);
+}
+
+//void set_angle(){}
+
+

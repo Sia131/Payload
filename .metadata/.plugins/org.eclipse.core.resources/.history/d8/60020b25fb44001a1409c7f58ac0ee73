@@ -1,0 +1,11 @@
+#include "servo.h"
+#include <stdint.h>
+
+void test_blink(){
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+	HAL_Delay(100);
+}
+
+void set_angle(uint8_t data){
+	htim2.Instance->CCR1 = data; //0
+}
