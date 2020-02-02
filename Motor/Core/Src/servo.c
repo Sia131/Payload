@@ -1,6 +1,5 @@
 #include "servo.h"
-#include <stdint.h>
-#include "stm32f1xx_hal.h"
+
 
 #define A 	1
 #define B  	0
