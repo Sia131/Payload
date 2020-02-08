@@ -2,7 +2,7 @@
 #include "encoder.h"
 #include "stdint.h"
 
-/*
+
 volatile int32_t count;
 volatile float angle;
 
@@ -33,5 +33,5 @@ float encoder_get_angle(){
 	return angle;
 }
 
-*/
+
 

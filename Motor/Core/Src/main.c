@@ -120,7 +120,7 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_1);
-  //encoder_init();
+  encoder_init();
 
 
   /* USER CODE END 2 */
@@ -129,9 +129,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  encoder_update_count();
 	  test_blink();
-	  printf("hello world");
-	  //HAL_Delay(1000);
+	  printf("%d \n\r",enocder_get_count());
+	  HAL_Delay(100);
 
     /* USER CODE END WHILE */
 
