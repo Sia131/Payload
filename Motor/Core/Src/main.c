@@ -129,10 +129,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  encoder_update_count();
 	  test_blink();
 	  printf("%d \n\r",enocder_get_count());
 	  HAL_Delay(100);
+	  //encoder_reset();
 
     /* USER CODE END WHILE */
 

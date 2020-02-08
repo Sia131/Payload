@@ -2,20 +2,17 @@
 #include "encoder.h"
 #include "stdint.h"
 
-
-volatile int32_t count;
+#define MAX_COUNT_ENCODER_HEX 0x100
 volatile float angle;
 
 
-void encoder_update_count(){
-	count = TIM4->CNT;
-}
 
 void encoder_init(){
 	RCC->APB2ENR |= RCC_APB2ENR_AFIOEN | RCC_APB2ENR_IOPBEN;
 	RCC->APB1ENR |= RCC_APB1ENR_TIM4EN; //AFIO might not even be needed?
 
-	TIM4->ARR = 0xFFFF;
+	// value to count up to : 16 bit so max is 0xFFFF = 65535
+	TIM4->ARR = MAX_COUNT_ENCODER_HEX;
 
 	//per datasheet instructions
 	TIM4->CCMR1 |= (TIM_CCMR1_CC1S_0 | TIM_CCMR1_CC2S_0 );  //step 1 and 2
@@ -24,13 +21,17 @@ void encoder_init(){
 	TIM4->CR1 |= TIM_CR1_CEN ;     //step 6
 }
 
-int32_t enocder_get_count(){
-	return count;
+uint16_t enocder_get_count(){
+	return TIM4->CNT;
 }
 
 float encoder_get_angle(){
-	angle = count/(2*3.14);
+	//angle = count/(2*3.14);
 	return angle;
+}
+
+void encoder_reset(){
+	TIM4->CNT = 0;
 }
 
 
