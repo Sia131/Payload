@@ -1,4 +1,4 @@
 encoder.c:10:6:encoder_init	4	static
-encoder.c:24:10:enocder_get_count	4	static
-encoder.c:28:7:encoder_get_angle	4	static
-encoder.c:33:6:encoder_reset	4	static
+encoder.c:24:10:encoder_get_count	4	static
+encoder.c:29:7:encoder_get_angle	4	static
+encoder.c:34:6:encoder_reset	4	static

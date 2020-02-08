@@ -130,9 +130,8 @@ int main(void)
   while (1)
   {
 	  test_blink();
-	  printf("%d \n\r",enocder_get_count());
+	  printf("count: %d\n\r",encoder_get_count());
 	  HAL_Delay(100);
-	  //encoder_reset();
 
     /* USER CODE END WHILE */
 

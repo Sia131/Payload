@@ -2,7 +2,7 @@
 #include "encoder.h"
 #include "stdint.h"
 
-#define MAX_COUNT_ENCODER_HEX 0x100
+#define MAX_COUNT_ENCODER_HEX 0x60
 volatile float angle;
 
 
@@ -21,15 +21,17 @@ void encoder_init(){
 	TIM4->CR1 |= TIM_CR1_CEN ;     //step 6
 }
 
-uint16_t enocder_get_count(){
+uint16_t encoder_get_count(){
 	return TIM4->CNT;
 }
 
-float encoder_get_angle(){
-	//angle = count/(2*3.14);
-	return angle;
-}
 
+//fikk ikke implementert den riktig
+float encoder_get_angle(){
+	//trasnfer function
+	return angle;
+
+}
 void encoder_reset(){
 	TIM4->CNT = 0;
 }
