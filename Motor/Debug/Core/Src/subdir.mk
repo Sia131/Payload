@@ -4,6 +4,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/dcmotor.c \
 ../Core/Src/encoder.c \
 ../Core/Src/main.c \
 ../Core/Src/servo.c \
@@ -14,6 +15,7 @@ C_SRCS += \
 ../Core/Src/system_stm32f1xx.c 
 
 OBJS += \
+./Core/Src/dcmotor.o \
 ./Core/Src/encoder.o \
 ./Core/Src/main.o \
 ./Core/Src/servo.o \
@@ -24,6 +26,7 @@ OBJS += \
 ./Core/Src/system_stm32f1xx.o 
 
 C_DEPS += \
+./Core/Src/dcmotor.d \
 ./Core/Src/encoder.d \
 ./Core/Src/main.d \
 ./Core/Src/servo.d \
@@ -35,6 +38,8 @@ C_DEPS += \
 
 
 # Each subdirectory must supply rules for building sources it contributes
+Core/Src/dcmotor.o: ../Core/Src/dcmotor.c
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/dcmotor.d" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
 Core/Src/encoder.o: ../Core/Src/encoder.c
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/encoder.d" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
 Core/Src/main.o: ../Core/Src/main.c

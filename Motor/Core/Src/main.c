@@ -95,7 +95,7 @@ int main(void)
 
 
   /* USER CODE END 1 */
-  
+
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -120,7 +120,6 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_1);
-  encoder_init();
 
 
   /* USER CODE END 2 */
@@ -129,9 +128,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  test_blink();
-	  printf("count: %d\n\r",encoder_get_count());
-	  HAL_Delay(100);
+	  set_angle(&htim2, 90);
 
     /* USER CODE END WHILE */
 
